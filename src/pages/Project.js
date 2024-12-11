@@ -1,20 +1,23 @@
-import React from 'react';
+
 import BtnGithub from '../components/btnGithub/BtnGithub';
+import { useParams } from 'react-router-dom';
+import { projects } from '../helpers/projectList';
 
-export default function Project({ title, imgBig, skills, githubLink }) {
+export default function Project() {
+  const { id } = useParams();
+  const { title, imgBig, skills, githubLink } = projects[id];
   return (
-    <main class="section">
-      <div class="container">
-        <div class="project-details">
-          <h1 class="title-1">{title} Hello</h1>
+    <main className="section">
+      <div className="container">
+        <div className="project-details">
+          <h1 className="title-1">{title}</h1>
 
-          <img src={imgBig} alt={title} class="project-details__cover" />
+          <img src={imgBig} alt={title} className="project-details__cover" />
 
-          <div class="project-details__desc">
+          <div className="project-details__desc">
             <p>{skills}</p>
           </div>
-
-          <BtnGithub githubLink={githubLink} />
+          {githubLink && <BtnGithub githubLink={githubLink} />}
         </div>
       </div>
     </main>

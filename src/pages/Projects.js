@@ -1,4 +1,4 @@
-import React from 'react';
+
 import Project from '../components/project/Project';
 
 import { projects } from '../helpers/projectList';
@@ -11,7 +11,7 @@ export default function Projects() {
           <h2 className="title-1">Projects</h2>
           <ul className="projects">
             {projects.map((project, i) => (
-              <Project key={i} {...project} />
+              <Project key={i} {...project} index={i}/>
             ))}
           </ul>
         </div>
